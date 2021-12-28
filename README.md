@@ -14,3 +14,4 @@ Run the file ConnectBlind.java with the argument "text"
 
 Version: 1.0 - Text/ASCII Version 12/8/2021
 Version: 2.0 - GUI/JavaFX Version 12/24/2021
+Version: 2.1 - Added Some more Documentation 12/28/2021
