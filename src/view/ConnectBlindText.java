@@ -1,3 +1,10 @@
+/**
+ * @author Brandon Kaplan
+ * FILE: ConnectBlindText.java
+ * DESCRIPTION: This is the ASCII version of Connect Blind where the 
+ * 
+ * 
+ */
 package view;
 
 import java.util.Scanner;
@@ -11,6 +18,7 @@ public class ConnectBlindText {
 	
 	public static void main(String[] args) {
 		String input = "";
+		// prints the title sequence and continues playing until user quits
 		while (!input.equalsIgnoreCase("No")) {
 			System.out.println("	_________                                     __    ");
 			System.out.println("	\\_   ___ \\  ____   ____   ____   ____   _____/  |_  ");
@@ -42,17 +50,20 @@ public class ConnectBlindText {
 		// prints out the board first so the player can see
 		model.printEncryptedBoard();
 		
+		// keeps going until the game is over
 		while (end == false) {
 			if (playerTurn == true) {
 				System.out.println("PLAYER ONE'S TURN (RED DISCS): ");
 			} else {
 				System.out.println("PLAYER TWO'S TURN (BLACK DISCS): ");
 			}
-			
+			// gets the user's guess
 			System.out.println("Enter a Column to place disk");
 			String input = connectBlindHost.next();
 			int column = Integer.parseInt(input) - 1;
 			boolean added = false;
+			
+			// adds the piece depending on which player's turn it is
 			if (playerTurn == true) {
 				added = model.addPiece(column, "RED");
 			} else {

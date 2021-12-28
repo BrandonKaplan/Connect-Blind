@@ -1,3 +1,15 @@
+/**
+ * @author Brandon Kaplan
+ * FILE: ConnectBlindModelGUI.java
+ * DESCRIPTION: With the MVC design model (model, view, controller), this file
+ * represents the model portion for the GUI implementation of Connect Blind. The 
+ * model represents the actual board and values of game that is updated by the 
+ * controller which reflects on the view. This stores the pieces in a two 
+ * dimensional array where the size of the board can be altered by changing the 
+ * constant variables numColumns and numRows.
+ * 
+ * IMPORTANT NOTE: Must have DiscPieceGUI.java to successfully run.
+ */
 package model;
 
 public class ConnectBlindModelGUI {
@@ -44,6 +56,7 @@ public class ConnectBlindModelGUI {
 		board[nextAvailable][column] = newPiece;
 		return nextAvailable;
 	}
+	
 	
 	public void printActualBoard() {
 		System.out.println("_______________________");

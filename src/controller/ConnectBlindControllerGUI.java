@@ -1,5 +1,16 @@
-package controller;
+/**
+ * @author Brandon Kaplan
+ * PROJECT: Connect Blind
+ * FILE: ConnectBlindGUIController.java
+ * DESCRIPTION: With the MVC design model (model, view, controller), this file
+ * represents the controller portion for the GUI implementation of Connect Blind.
+ * With the controller, this provides the game with the game mechanics that 
+ * dictate when a player wins and reports that information back to model. 
 
+ * IMPORTANT NOTE: Must have ConnectBlindModelGUI.java and DiscPieceGUI.java 
+ * to successfully run.
+ */
+package controller;
 import model.ConnectBlindModel;
 import model.ConnectBlindModelGUI;
 import model.DiscPiece;
@@ -13,6 +24,14 @@ public class ConnectBlindControllerGUI {
 		this.model = model;
 	}
 	
+	/**
+	 * Dictates if someone (or no one) one the game
+	 * 
+	 * Iterates for each of the directions of possible ways to win and seeing
+	 * if a player won the game (or neither 
+	 * 
+	 * @return
+	 */
 	public String dictateWinner() {
 		DiscPiece[][] board = model.getBoard();
 		// iterates for each piece on the board
@@ -39,7 +58,7 @@ public class ConnectBlindControllerGUI {
 		int width = board[0].length;
 		int height = board.length;
 		
-		// iterates left to right 
+		// iterates left to right and right to left
 		if (column + 3 < width) {
 			int target = column + 3;
 			int totalConnected = 0;
@@ -57,8 +76,8 @@ public class ConnectBlindControllerGUI {
 				return true;
 			}
 		}
-		
-		// iterates top to bottom
+	
+		// iterates top to bottom and bottom to top
 		if (row - 3 >= 0) {
 			int target = row - 3;
 			int totalConnected = 0;
@@ -77,7 +96,7 @@ public class ConnectBlindControllerGUI {
 			}
 		}
 		
-		// iterates top left to bottom right
+		// iterates top left to bottom right (diagonally)
 		if (row + 3 < height && column + 3 < width) {
 			int colTarget = column + 3;
 			int totalConnected = 0;
@@ -99,7 +118,7 @@ public class ConnectBlindControllerGUI {
 			}
 		}
 		
-		// iterates bottom left to top right
+		// iterates bottom left to top right (diagonally) 
 		if (row - 3 >= 0 && column + 3 < width) {
 			int colTarget = column + 3;
 			int totalConnected = 0;
